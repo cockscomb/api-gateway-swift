@@ -1,8 +1,6 @@
-# Welcome to your CDK TypeScript project!
+# api-gateway-swift
 
-This is a blank project for TypeScript development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+[Swift AWS Lambda Runtime](https://github.com/swift-server/swift-aws-lambda-runtime) example project.
 
 ## Useful commands
 
