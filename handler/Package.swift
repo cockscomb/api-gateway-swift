@@ -12,13 +12,17 @@ let package = Package(
         .executable(name: "Handler", targets: ["Handler"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-server/swift-aws-lambda-runtime.git", .upToNextMajor(from:"0.1.0")),
+        .package(
+            url: "https://github.com/swift-server/swift-aws-lambda-runtime.git",
+            .upToNextMajor(from: "0.1.0")),
     ],
     targets: [
         .target(
             name: "Handler",
             dependencies: [
                 .product(name: "AWSLambdaRuntime", package: "swift-aws-lambda-runtime"),
-            ]),
+                .product(name: "AWSLambdaEvents", package: "swift-aws-lambda-runtime"),
+            ]
+        ),
     ]
 )

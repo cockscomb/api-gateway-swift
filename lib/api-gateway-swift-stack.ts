@@ -1,5 +1,6 @@
 import * as cdk from "@aws-cdk/core";
 import * as lambda from "@aws-cdk/aws-lambda";
+import * as apigateway from "@aws-cdk/aws-apigateway";
 import * as path from "path";
 import { Builder } from "./builder";
 
@@ -12,10 +13,14 @@ export class ApiGatewaySwiftStack extends cdk.Stack {
       executable: "Handler",
     }).build();
 
-    new lambda.Function(this, "Handler", {
+    const handler = new lambda.Function(this, "Handler", {
       code,
       handler: "Handler",
       runtime: lambda.Runtime.PROVIDED,
+    });
+
+    new apigateway.LambdaRestApi(this, "Api", {
+      handler,
     });
   }
 }
